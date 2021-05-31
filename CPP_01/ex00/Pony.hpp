@@ -20,7 +20,7 @@ public:
 	void setPonyAge(int ponyAge);
 
 	Pony();
-	~Pony();
+	:~Pony();
 };
 
 
