@@ -4,6 +4,7 @@
 #include <iostream>
 #include <iomanip>
 #include "Contact.hpp"
+#include <cstdlib>
 
 class Phonebook	{
 private:

@@ -44,12 +44,19 @@ int		main()
 			{
 				messages(k);
 				std::cin >> user_input;
+				if (std::cin.eof())
+					return (0);
 				_phone_book.fill_contact(user_input, j, k);
 			}
 			j++;
 		}
 		else if(user_input == "SEARCH")
 			_phone_book.search(j);
+		else if (!std::cin.eof())
+		{
+			std::cout << "Execute one of the following commands: SEARCH to see contact info/EXIT to quit/ADD to add contact" << std::endl;
+			continue ;
+		}
 		if(user_input == "ADD" && j == 8)
 			std::cout << "Your Phonebook is full!!" << std::endl;
 		user_input = "";

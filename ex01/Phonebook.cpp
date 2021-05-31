@@ -5,7 +5,7 @@ void	Phonebook::fill_contact(const std::string &line, int index, int string_numb
 	if (string_number == 0)
 	{
 		contacts[index].setFirstName(line);
-		contacts[index].setIndex(index + 1);
+		contacts[index].setIndex(index);
 	}
 	else if (string_number == 1)
 		contacts[index].setLastName(line);
@@ -36,7 +36,7 @@ Contact Phonebook::getContacts(int index) const {
 void Phonebook::search(int quantity)
 {
 	std::string		user_input;
-	int				contact_number(0);
+	int				j(0);
 
 	if (quantity > 0)
 	{
@@ -48,15 +48,39 @@ void Phonebook::search(int quantity)
 		for (int i = 0; i < quantity; i++)
 		{
 			std::cout << std::setw(10) << this->getContacts(i).getIndex() << "|";
-			std::cout << std::setw(10) << this->getContacts(i).getFirstName().substr(0, 10) << "|";
-			std::cout << std::setw(10) << this->getContacts(i).getLastName().substr(0, 10) << "|";
-			std::cout << std::setw(10) << this->getContacts(i).getNickname().substr(0, 10) << "|";
+			if (this->getContacts(i).getFirstName().length() > 10)
+				std::cout << std::setw(9) << this->getContacts(i).getFirstName().substr(0, 9) << "." << "|";
+			else
+				std::cout << std::setw(10) << this->getContacts(i).getFirstName().substr(0, 10) << "|";
+			if (this->getContacts(i).getLastName().length() > 10)
+				std::cout << std::setw(9) << this->getContacts(i).getLastName().substr(0,9) << "." << "|";
+			else
+				std::cout << std::setw(10) << this->getContacts(i).getLastName().substr(0, 10) << "|";
+			if (this->getContacts(i).getNickname().length() > 10)
+				std::cout << std::setw(9) << this->getContacts(i).getNickname().substr(0,9) << "." << "|";
+			else
+				std::cout << std::setw(10) << this->getContacts(i).getNickname().substr(0, 10) << "|";
 			std::cout << std::endl;
 		}
-		std::cout << "Choose contact number to see full information" << std::endl;
-		std::cin >> user_input;
-		contact_number = std::atoi(user_input.c_str());
-		this->get_contact_info(contact_number);
+		while (true)
+		{
+			std::cout << "Choose contact number to see full information" << std::endl;
+			std::cin >> user_input;
+			while (std::isdigit(user_input[j]))
+				j++;
+			if (user_input.length() == j)
+			{
+				if (std::atoi(user_input.c_str()) > quantity)
+				{
+					std::cout << "This contact is empty" << std::endl;
+					break ;
+				}
+				this->get_contact_info(std::atoi(user_input.c_str()));
+				break ;
+			}
+			else
+				std::cout << "Please chose valid contact number" << std::endl;
+		}
 	}
 	else
 		std::cout << "Your Phonebook is empty" << std::endl;
