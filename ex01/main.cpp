@@ -33,9 +33,10 @@ int		main()
 	std::string		user_input;
 	int				j(0);
 
+	std::cout << "Execute one of the following commands: SEARCH to see contact info/EXIT to quit/ADD to add contact" << std::endl;
 	while(!std::cin.eof())
 	{
-		std::cin >> user_input;
+		std::getline(std::cin, user_input);
 		if(user_input == "EXIT")
 			break ;
 		else if(user_input == "ADD" && j < 8)
@@ -43,7 +44,7 @@ int		main()
 			for(int k = 0; k < 11; k++)
 			{
 				messages(k);
-				std::cin >> user_input;
+				std::getline(std::cin, user_input);
 				if (std::cin.eof())
 					return (0);
 				_phone_book.fill_contact(user_input, j, k);
@@ -51,13 +52,17 @@ int		main()
 			j++;
 		}
 		else if(user_input == "SEARCH")
+		{
 			_phone_book.search(j);
+		}
 		else if (!std::cin.eof())
 		{
 			std::cout << "Execute one of the following commands: SEARCH to see contact info/EXIT to quit/ADD to add contact" << std::endl;
+			if (j >= 8)
+				std::cout << "Your phonebook might be full" << std::endl;
 			continue ;
 		}
-		if(user_input == "ADD" && j == 8)
+		if(user_input == "ADD" && j == 7)
 			std::cout << "Your Phonebook is full!!" << std::endl;
 		user_input = "";
 	}

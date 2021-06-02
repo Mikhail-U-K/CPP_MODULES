@@ -70,7 +70,12 @@ void Phonebook::search(int quantity)
 				j++;
 			if (user_input.length() == j)
 			{
-				if (std::atoi(user_input.c_str()) > quantity)
+				if (std::atoi(user_input.c_str()) > 8 || std::atoi(user_input.c_str()) < 0)
+				{
+					std::cout << "Enter number between 0 and 7" << std::endl;
+					break ;
+				}
+				if (std::atoi(user_input.c_str()) >= quantity)
 				{
 					std::cout << "This contact is empty" << std::endl;
 					break ;
