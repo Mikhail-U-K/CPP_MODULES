@@ -52,3 +52,6 @@ void NinjaTrap::ninjaShoebox(const FragTrap &fragTrap) {
 	std::cout << "Why do i even exist" << std::endl;
 }
 
+NinjaTrap::NinjaTrap() {
+
+}

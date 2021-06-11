@@ -1,6 +1,6 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(const std::string& name) : ClapTrap("ABOBA"){
+FragTrap::FragTrap(const std::string& name) : ClapTrap(name){
 	Name = name;
 	HP = 100;
 	_energy_point = 100;
@@ -91,4 +91,8 @@ void FragTrap::beRepaired(int amount) {
 		cur_hp = MAX_HP;
 	HP = cur_hp;
 	std::cout << "Can I just say... yeehaw" << std::endl;
+}
+
+FragTrap::FragTrap() {
+
 }

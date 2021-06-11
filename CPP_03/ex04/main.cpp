@@ -2,6 +2,7 @@
 #include "ScavTrap.hpp"
 #include "ClapTrap.hpp"
 #include "NinjaTrap.hpp"
+#include "SuperTrap.hpp"
 
 int main()
 {
@@ -38,5 +39,9 @@ int main()
 	trap_ninja.ninjaShoebox(model_1);
 	trap_ninja.ninjaShoebox(model_3);
 	trap_ninja.ninjaShoebox(trap_ninja);
+	SuperTrap super("ABObus");
+
+	super.meleeAttack("Bib");
+	super.rangedAttack("Bob");
 	return (0);
 }
