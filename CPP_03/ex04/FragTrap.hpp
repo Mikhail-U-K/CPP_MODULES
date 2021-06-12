@@ -24,5 +24,4 @@ public:
 	virtual void	beRepaired(int amount);
 };
 
-
 #endif

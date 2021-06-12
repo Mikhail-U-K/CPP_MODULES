@@ -1,16 +1,10 @@
 #include "SuperTrap.hpp"
 
-SuperTrap::SuperTrap(const std::string &name) : ClapTrap(name), NinjaTrap(name), FragTrap(name) {
+SuperTrap::SuperTrap(const std::string &name) : ClapTrap(name), FragTrap(), NinjaTrap()
+{
 	std::cout << "Sweet life juice!" << std::endl;
-	HP = FragTrap::HP;
-	MAX_HP = FragTrap::MAX_HP;
-	_energy_point = NinjaTrap::_energy_point;
-	MAX_EP = NinjaTrap::MAX_EP;
 	_level = 1;
 	Name = name;
-	ranged_attack_dmg = FragTrap::ranged_attack_dmg;
-	melee_attack_dmg = NinjaTrap::melee_attack_dmg;
-	armor_reduction = FragTrap::armor_reduction;
 }
 
 SuperTrap::~SuperTrap() {
@@ -19,6 +13,15 @@ SuperTrap::~SuperTrap() {
 
 SuperTrap &SuperTrap::operator=(const SuperTrap &superTrap) {
 	std::cout << "I need tiny death pellets!" << std::endl;
+	HP = superTrap.HP;
+	MAX_EP = superTrap.MAX_EP;
+	MAX_HP = superTrap.MAX_HP;
+	_energy_point = superTrap._energy_point;
+	_level = superTrap._level;
+	Name = superTrap.Name;
+	ranged_attack_dmg = superTrap.ranged_attack_dmg;
+	melee_attack_dmg = superTrap.melee_attack_dmg;
+	armor_reduction = superTrap.armor_reduction;
 	return (*this);
 }
 
@@ -32,5 +35,5 @@ void SuperTrap::rangedAttack(const std::string &target) {
 }
 
 void SuperTrap::meleeAttack(const std::string &target) {
-	FragTrap::meleeAttack(target);
+	NinjaTrap::meleeAttack(target);
 }

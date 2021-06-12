@@ -94,5 +94,8 @@ void FragTrap::beRepaired(int amount) {
 }
 
 FragTrap::FragTrap() {
-
+	HP = 100;
+	MAX_HP = 100;
+	ranged_attack_dmg = 20;
+	armor_reduction = 5;
 }

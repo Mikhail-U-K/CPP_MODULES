@@ -53,5 +53,7 @@ void NinjaTrap::ninjaShoebox(const FragTrap &fragTrap) {
 }
 
 NinjaTrap::NinjaTrap() {
-
+	_energy_point = 120;
+	melee_attack_dmg = 60;
+	MAX_EP = 120;
 }

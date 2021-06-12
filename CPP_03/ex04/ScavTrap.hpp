@@ -16,7 +16,7 @@ public:
 
 //============================MemberFunctions=========================//
 
-	void	challengeNewcomer();
+	void			challengeNewcomer();
 	virtual void	rangedAttack(std::string const &target);
 	virtual void	meleeAttack(std::string const &target);
 	virtual void	takeDamage(int amount);

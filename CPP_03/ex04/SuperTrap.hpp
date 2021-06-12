@@ -11,8 +11,8 @@ public:
 	SuperTrap& operator= (const SuperTrap &superTrap);
 	SuperTrap(const SuperTrap &copy);
 
-	void	rangedAttack(std::string const &target);
-	void	meleeAttack(std::string const &target);
+	virtual void	rangedAttack(std::string const &target);
+	virtual void	meleeAttack(std::string const &target);
 };
 
 
