@@ -29,4 +29,6 @@ void Enemy::takeDamage(int damage) {
 	if (damage < 0)
 		return ;
 	HP = HP - damage;
+	if (HP < 0)
+		HP = 0;
 }

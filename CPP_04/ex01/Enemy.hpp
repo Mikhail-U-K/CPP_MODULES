@@ -3,6 +3,7 @@
 
 #include <iostream>
 
+
 class Enemy {
 protected:
 	int			HP;

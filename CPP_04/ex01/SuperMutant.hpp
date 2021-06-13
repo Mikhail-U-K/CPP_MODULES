@@ -12,5 +12,4 @@ public:
 	virtual void takeDamage(int damage);
 };
 
-
 #endif
