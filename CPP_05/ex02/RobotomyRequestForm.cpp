@@ -2,7 +2,7 @@
 
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : Form("RobotomyRequestForm", 72, 45) {}
+RobotomyRequestForm::RobotomyRequestForm(const std::string &) : Form("RobotomyRequestForm", 72, 45) {}
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &roboform) {
 	if (this == &roboform)

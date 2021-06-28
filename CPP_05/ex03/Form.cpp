@@ -24,7 +24,7 @@ grade_to_execute(gradetoexec) {
 		throw (GradeTooHighException());
 }
 
-Form::Form(const Form &copy) : f_name(copy.f_name), sign_status(copy.sign_status), grade_to_execute(copy.grade_to_execute), grade_to_sign (copy.grade_to_sign) {}
+Form::Form(const Form &copy) : f_name(copy.f_name), sign_status(copy.sign_status),grade_to_sign (copy.grade_to_sign), grade_to_execute(copy.grade_to_execute) {}
 
 Form &Form::operator= (const Form &form) {
 	if (this == &form)
