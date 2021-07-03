@@ -37,11 +37,41 @@ void	identify(Base *p)
 		std::cout << "C" << std::endl;
 }
 
+void	identify_by_ref(Base &p)
+{
+	std::cout << "(reference) this type is ";
+	try {
+		(void)dynamic_cast<A &>(p);
+		std::cout << "A" << std::endl;
+		return ;
+	}
+	catch (const std::bad_cast &e) {
+//		std::cerr << "CAST ERROR" << e.what() << std::endl;
+	}
+	try {
+		(void)dynamic_cast<B &>(p);
+		std::cout << "B" << std::endl;
+		return ;
+	}
+	catch (const std::bad_cast &e) {
+//		std::cerr << "CAST ERROR" << e.what() << std::endl;
+	}
+	try {
+		(void)dynamic_cast<C &>(p);
+		std::cout << "C" << std::endl;
+		return ;
+	}
+	catch (const std::bad_cast &e) {
+//		std::cerr << "CAST ERROR" << e.what() << std::endl;
+	}
+}
+
 int main()
 {
-	Base	*orig = new Base;
+	Base	*orig;
 	srand(time(0));
 	orig = generate();
 	identify(orig);
+	identify_by_ref(*orig);
 	return (0);
 }
