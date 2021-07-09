@@ -4,20 +4,20 @@ SRC		=	main.cpp
 
 FLAGS	=	-Wall -Wextra -Werror
 
-OBJS	= ${SRC:.cpp=.o}
-
 RM		= rm -f
 
-all:	${NAME}
+O_FILE		=	$(patsubst %.cpp, %.o, $(SRC))
 
-.c.o:
-		clang++ ${FLAGS} -c $< -o
+all: $(NAME)
 
-${NAME}: ${OBJS}
-		clang++ ${FLAGS} ${OBJS} -o ${NAME}
+$(NAME):	$(O_FILE)
+			clang++ $(FLAGS) $(O_FILE) -o $(NAME)
+
+$(O_FILE):	%.o: %.cpp
+			clang++ $(FLAGS) -c $< -o $@
 
 clean:
-		${RM} ${OBJS}
+		${RM} ${O_FILE}
 
 fclean:	clean
 		${RM} ${NAME}

@@ -33,7 +33,7 @@ public:
 //		}
 		array = new T[_array.len]();
 		len = _array.len;
-		for (int i = 0; i < len; ++i)
+		for (uint i = 0; i < len; ++i)
 			array[i] = _array.array[i];
 		return (*this);
 	}

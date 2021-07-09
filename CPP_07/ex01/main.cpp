@@ -3,19 +3,18 @@
 int main()
 {
 	srand(time(0));
-	int		length = 10;
+	int		length = 5;
 	int		*pop = new int[length];
-	std::string	*kek2 = new std::string[length];
 
 	for (int i = 0; i < length; ++i)
 		pop[i] = 0;
-	for (int i = 0; i < length; ++i)
-		kek2[i] = 'A';
+	iter(&pop, length, print_int_array);
 	iter(&pop, length, plus);
-	for (int i = 0; i < length; ++i)
-		std::cout << pop[i] << std::endl;
-	iter(&kek2, length, plus_str);
-	for (int i = 0; i < length; ++i)
-		std::cout << kek2[i] << std::endl;
+	iter(&pop, length, print_int_array);
+	std::string		*str_array = new std::string[5];
+
+	for (int i = 0; i < 5; ++i)
+		str_array[i] = ("A" + std::to_string(i));
+	iter(&str_array, length, print_string_array);
 	return (0);
 }

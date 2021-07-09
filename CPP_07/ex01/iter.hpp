@@ -10,17 +10,12 @@ void	iter(T **array, uint array_length, void (*some_func)(T &))
 
 void	plus(int &number) {number += 1;}
 
-void	plus_str(std::string &str) {
-	char	c;
-	uint	index = rand() % 30 + 10;
-	uint	to_char = 126;
-	uint	i = 0;
-	for (; index; --index){
-		if (to_char == 32)
-			to_char = rand() % 126;
-		to_char--;
-		c = static_cast<char>(to_char);
-		str[i] = c;
-		i++;
-	}
+void	print_int_array(int &num)
+{
+	std::cout << num << std::endl;
+}
+
+void	print_string_array(std::string &str)
+{
+	std::cout << str << std::endl;
 }
