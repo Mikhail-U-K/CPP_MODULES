@@ -9,7 +9,6 @@ class Array
 private:
 	T		*array;
 	uint	len;
-//	T		init_value;
 public:
 	Array() {array = new T(nullptr);};
 	explicit Array(uint n) : len(n) {
@@ -43,14 +42,14 @@ public:
 	}
 	T& operator[] (const uint &index) {
 		try {
-			if (index > len)
+			if (index > len || index < 0)
 				throw std::out_of_range("No such element");
-
+			return (array[index]);
 		}
 		catch (const std::exception &e) {
 			std::cout << e.what() << std::endl;
 		}
-		return (array[index]);
+		return (array[0]);
 	}
 	uint	size() const {return (len);};
 };

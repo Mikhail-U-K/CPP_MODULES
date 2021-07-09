@@ -29,14 +29,14 @@ int main()
 			return 1;
 		}
 	}
-//	try
-//	{
-//		numbers[-2] = 0;
-//	}
-//	catch(const std::exception& e)
-//	{
-//		std::cerr << e.what() << '\n';
-//	}
+	try
+	{
+		numbers[-2] = 0;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 	try
 	{
 		numbers[MAX_VAL] = 0;
